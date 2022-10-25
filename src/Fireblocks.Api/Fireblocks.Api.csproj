@@ -6,6 +6,9 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Fireblocks.Api.Models" Version="1.0.547" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.10" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.2" />
     <PackageReference Include="Refit" Version="6.3.2" />
+    <PackageReference Include="Unified" Version="1.0.6" />
   </ItemGroup>
 </Project>
