@@ -19,16 +19,16 @@ public class TokenService : ITokenService
 		_jwtConfig = jwtConfig ?? throw new ArgumentNullException(nameof(jwtConfig));
 	}
 
-	public string BuildToken(HttpRequestMessage request)
+	public string BuildToken(HttpRequestMessage requestMessage)
 	{
 		ArgumentNullException.ThrowIfNull(_fireblocksApiConfig.SecretKey, nameof(_fireblocksApiConfig.SecretKey));
-		ArgumentNullException.ThrowIfNull(request, nameof(request));
+		ArgumentNullException.ThrowIfNull(requestMessage, nameof(requestMessage));
 
 		using RSA rsa = RSA.Create();
 		rsa.ImportPkcs8PrivateKey(_fireblocksApiConfig.SecretKey.ToByteArray(), out _);
 
 		var jwtSecurityToken = new JwtSecurityToken(
-			claims: BuildClaims(request),
+			claims: BuildClaims(requestMessage),
 			signingCredentials: new SigningCredentials(new RsaSecurityKey(rsa), SecurityAlgorithms.RsaSha256)
 			{
 				CryptoProviderFactory = new CryptoProviderFactory { CacheSignatureProviders = false }
@@ -38,14 +38,14 @@ public class TokenService : ITokenService
 		return new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
 	}
 
-	IEnumerable<Claim> BuildClaims(HttpRequestMessage request)
+	IEnumerable<Claim> BuildClaims(HttpRequestMessage requestMessage)
 	{
 		ArgumentNullException.ThrowIfNull(_fireblocksApiConfig.ApiKey, nameof(_fireblocksApiConfig.ApiKey));
-		ArgumentNullException.ThrowIfNull(request.RequestUri, nameof(request.RequestUri));
+		ArgumentNullException.ThrowIfNull(requestMessage.RequestUri, nameof(requestMessage.RequestUri));
 
 		return new List<Claim>
 		{
-			new Claim("uri", request.RequestUri.AbsolutePath.ToString()),
+			new Claim("uri", requestMessage.RequestUri.AbsolutePath.ToString()),
 			new Claim("nonce",_jwtConfig.Nonce),
 			new Claim(
 				JwtRegisteredClaimNames.Iat,
@@ -56,18 +56,18 @@ public class TokenService : ITokenService
 				_jwtConfig.IssueAt.AddSeconds(_jwtConfig.ExpiredInSeconds).ToUnixEpochDate().ToString(),
 				ClaimValueTypes.Integer64),
 			new Claim(JwtRegisteredClaimNames.Sub, _fireblocksApiConfig.ApiKey),
-			new Claim("bodyHash", GetRequestBodyHash(request))
+			new Claim("bodyHash", GetRequestBodyHash(requestMessage))
 		};
 	}
 
-	static string GetRequestBodyHash(HttpRequestMessage request)
+	static string GetRequestBodyHash(HttpRequestMessage requestMessage)
 	{
-		ArgumentNullException.ThrowIfNull(request, nameof(request));
+		ArgumentNullException.ThrowIfNull(requestMessage, nameof(requestMessage));
 
-		if (request.Content == null)
+		if (requestMessage.Content == null)
 			return string.Empty;
 
-		var stream = request.Content.ReadAsStreamAsync().Result;
+		var stream = requestMessage.Content.ReadAsStreamAsync().Result;
 		using var reader = new StreamReader(stream);
 		var body = reader.ReadToEnd();
 		stream.Seek(0, SeekOrigin.Begin);
