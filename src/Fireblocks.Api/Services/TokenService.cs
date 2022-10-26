@@ -65,23 +65,21 @@ public class TokenService : ITokenService
 		ArgumentNullException.ThrowIfNull(requestMessage, nameof(requestMessage));
 
 		if (requestMessage.Content == null)
-			return string.Empty;
+			return GetHash(null);
 
 		var stream = requestMessage.Content.ReadAsStreamAsync().Result;
 		using var reader = new StreamReader(stream);
 		var body = reader.ReadToEnd();
 		stream.Seek(0, SeekOrigin.Begin);
 
-		return GetHash(body);
+		return GetHash(!string.IsNullOrEmpty(body) ? body : null);
 	}
 
-	static string GetHash(string data)
+	static string GetHash(string? data)
 	{
-		ArgumentNullException.ThrowIfNull(data, nameof(data));
-
 		using var sha256 = SHA256.Create();
-		var bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(data));
+		var bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(data ?? "\"\""));
 
-		return Convert.ToHexString(bytes);
+		return BitConverter.ToString(bytes).Replace("-", string.Empty).ToLower();
 	}
 }
