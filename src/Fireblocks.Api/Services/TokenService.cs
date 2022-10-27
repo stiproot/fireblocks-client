@@ -68,7 +68,7 @@ public class TokenService : ITokenService
 			return GetHash(null);
 
 		var stream = requestMessage.Content.ReadAsStreamAsync().Result;
-		using var reader = new StreamReader(stream);
+		var reader = new StreamReader(stream);
 		var body = reader.ReadToEnd();
 		stream.Seek(0, SeekOrigin.Begin);
 

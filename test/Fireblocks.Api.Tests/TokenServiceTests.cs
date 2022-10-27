@@ -5,19 +5,9 @@ namespace Fireblocks.Api.Tests;
 public class TokenServiceTests : BaseServiceTests
 {
 	private readonly ITokenService _tokenService;
-	private readonly IJwtConfig _jwtConfig;
 
-	public TokenServiceTests(ITestOutputHelper testOutputHelper) : base(testOutputHelper)
-	{
-		_jwtConfig = new JwtConfig()
-		{
-			Nonce = "D3D2D2H7RIKAL",
-			IssueAt = new DateTime(2022, 10, 10, 0, 0, 0, DateTimeKind.Utc),
-			ExpiredInSeconds = 25
-		};
-
-		_tokenService = new TokenService(FireblocksApiConfig, _jwtConfig);
-	}
+	public TokenServiceTests(ITestOutputHelper testOutputHelper) : base(testOutputHelper) =>
+		_tokenService = new TokenService(FireblocksApiConfig, JwtConfig);
 
 	[Fact]
 	public void BuildToken_ShouldSucceed()

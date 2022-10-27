@@ -5,7 +5,7 @@ using Request = Fireblocks.Api.Models.Requests;
 
 namespace Fireblocks.Api.Interfaces;
 
-internal interface IVaultApi : IFireblocksApi
+public interface IVaultApi : IFireblocksApi
 {
 	[Get("/accounts_paged")]
 	Task<ApiResponse<VaultAccountsPagedModel>> GetVaultAccountsWithPageInfo(
@@ -18,7 +18,7 @@ internal interface IVaultApi : IFireblocksApi
 	Task<ApiResponse<VaultAccountModel>> GetVaultAccountAsync(string vaultAccountId);
 
 	[Post("/accounts")]
-	Task<ApiResponse<VaultAccountModel>> CreateVaultAccountAsync([Body] CreateVaultAccountParams payload);
+	Task<ApiResponse<VaultAccountModel>> CreateVaultAccountAsync([Body] Request.CreateVaultAccountModel payload);
 
 	[Put("/accounts/{vaultAccountId}")]
 	Task<ApiResponse<VaultAccountModel>> UpdateVaultAccountAsync(
