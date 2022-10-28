@@ -18,25 +18,25 @@ public class DateTimeExtensionsTests
 	{
 		yield return new object[] {
 			new TestData {
-				Source = new DateTime(2022, 10, 10, 0, 0, 0, DateTimeKind.Local),
+				Source = new DateTime(2022, 10, 10, 0, 0, 0),
 				Expected = 1665331200
 			}
 		};
 		yield return new object[] {
 			new TestData {
-				Source = new DateTime(2022, 9, 28, 4, 51, 33, DateTimeKind.Local),
+				Source = new DateTime(2022, 9, 28, 4, 51, 33),
 				Expected = 1664311893
 			}
 		};
 		yield return new object[] {
 			new TestData {
-				Source = new DateTime(2022, 5, 15, 8, 0, 0, DateTimeKind.Unspecified),
+				Source = new DateTime(2022, 5, 15, 8, 0, 0),
 				Expected = 1652572800
 			}
 		};
 		yield return new object[] {
 			new TestData {
-				Source = new DateTime(2022, 4, 30, 17, 24, 12, DateTimeKind.Unspecified),
+				Source = new DateTime(2022, 4, 30, 17, 24, 12),
 				Expected = 1651310652
 			}
 		};
