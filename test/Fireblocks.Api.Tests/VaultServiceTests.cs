@@ -8,7 +8,7 @@ public class VaultServiceTests : BaseServiceTests
 	public VaultServiceTests(ITestOutputHelper testOutputHelper) : base(testOutputHelper)
 	{
 		_vaultApiMock = new Mock<IVaultApi>();
-		_vaultService = new VaultService(Mock.Of<ILogger<VaultService>>(), _vaultApiMock.Object);
+		_vaultService = new VaultService(_vaultApiMock.Object);
 	}
 
 	[Fact]

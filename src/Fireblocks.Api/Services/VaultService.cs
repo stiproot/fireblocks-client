@@ -1,7 +1,6 @@
 using Fireblocks.Api.Interfaces;
 using Fireblocks.Api.Models.Requests.Params;
 using Fireblocks.Api.Models.Responses;
-using Microsoft.Extensions.Logging;
 using Refit;
 using Request = Fireblocks.Api.Models.Requests;
 
@@ -9,14 +8,10 @@ namespace Fireblocks.Api.Services;
 
 public class VaultService : IVaultService
 {
-	private readonly ILogger<VaultService> _logger;
 	private readonly IVaultApi _vaultApi;
 
-	public VaultService(ILogger<VaultService> logger, IVaultApi vaultApi)
-	{
-		_logger = logger;
+	public VaultService(IVaultApi vaultApi) =>
 		_vaultApi = vaultApi;
-	}
 
 	public async Task<ApiResponse<VaultAccountModel>> CreateVaultAccountAsync(Request.CreateVaultAccountModel payload) =>
 		await _vaultApi.CreateVaultAccountAsync(payload);
