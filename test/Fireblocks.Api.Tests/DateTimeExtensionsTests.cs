@@ -30,7 +30,7 @@ public class DateTimeExtensionsTests
 		};
 		yield return new object[] {
 			new TestData {
-				Source = new DateTime(2022, 5, 15, 8, 0, 0, DateTimeKind.Utc),
+				Source = new DateTime(2022, 5, 15, 0, 0, 0, DateTimeKind.Utc),
 				Expected = 1652572800
 			}
 		};
