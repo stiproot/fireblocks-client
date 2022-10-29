@@ -25,4 +25,46 @@ public class VaultServiceTests : BaseServiceTests
 		// Then
 		Assert.Equal(HttpStatusCode.OK, result.StatusCode);
 	}
+
+	[Fact]
+	public void CreateVaultAssetAsync_ShouldSucceed()
+	{
+		// Given
+		_vaultApiMock
+			.Setup(x => x.CreateVaultAssetAsync(
+				It.IsAny<string>(),
+				It.IsAny<string>(),
+				It.IsAny<Request.CreateVaultAssetModel>()))
+			.Returns(CreateResponse<VaultAssetModel>(HttpStatusCode.OK));
+
+		// When
+		var result = _vaultService.CreateVaultAssetAsync(
+			"vaultAccountId",
+			"assetId",
+			new Request.CreateVaultAssetModel());
+
+		// Then
+		Assert.Equal(HttpStatusCode.OK, result.Result.StatusCode);
+	}
+
+	[Fact]
+	public void GenerateNewAddressAsync_ShouldSucceed()
+	{
+		// Given
+		_vaultApiMock
+			.Setup(x => x.GenerateNewAddressAsync(
+				It.IsAny<string>(),
+				It.IsAny<string>(),
+				It.IsAny<Request.GenerateNewAddressModel>()))
+			.Returns(CreateResponse<CreateAddressModel>(HttpStatusCode.OK));
+
+		// When
+		var result = _vaultService.GenerateNewAddressAsync(
+			"vaultAccountId",
+			"assetId",
+			new Request.GenerateNewAddressModel());
+
+		// Then
+		Assert.Equal(HttpStatusCode.OK, result.Result.StatusCode);
+	}
 }
