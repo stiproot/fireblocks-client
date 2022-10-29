@@ -3,5 +3,6 @@ namespace Fireblocks.Api.Extensions;
 public static class DateTimeExtensions
 {
 	public static long ToUnixEpochDate(this DateTime dt) =>
-		TimeZoneInfo.ConvertTimeToUtc(dt).Subtract(DateTime.UnixEpoch).Ticks / TimeSpan.TicksPerSecond;
+		(dt.Kind != DateTimeKind.Utc ? dt.ToUniversalTime() : dt)
+			.Subtract(DateTime.UnixEpoch).Ticks / TimeSpan.TicksPerSecond;
 }
