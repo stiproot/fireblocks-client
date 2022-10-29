@@ -28,122 +28,91 @@ public class VaultService : IVaultService
 		Request.GenerateNewAddressModel payload) =>
 			await _vaultApi.GenerateNewAddressAsync(vaultAccountId, assetId, payload);
 
-	public Task<ApiResponse<IEnumerable<VaultAccountAssetAddressModel>>> GetDepositAddressesAsync(
+	public async Task<ApiResponse<IEnumerable<VaultAccountAssetAddressModel>>> GetDepositAddressesAsync(
 		string vaultAccountId,
 		string assetId,
-		Request.GetDepositAddressesModel payload)
-	{
-		throw new NotImplementedException();
-	}
+		Request.GetDepositAddressesModel payload) =>
+			await _vaultApi.GetDepositAddressesAsync(vaultAccountId, assetId, payload);
 
-	public Task<ApiResponse<MaxSpendableAmountModel>> GetMaxSpendableAmountAsync(string vaultAccountId, string assetId)
-	{
-		throw new NotImplementedException();
-	}
+	public async Task<ApiResponse<MaxSpendableAmountModel>> GetMaxSpendableAmountAsync(
+		string vaultAccountId,
+		string assetId) =>
+			await _vaultApi.GetMaxSpendableAmountAsync(vaultAccountId, assetId);
 
-	public Task<ApiResponse<PublicKeyModel>> GetPublicKeyInfoAsync(GetPublicKeyInfoParams queryParams)
-	{
-		throw new NotImplementedException();
-	}
+	public async Task<ApiResponse<PublicKeyModel>> GetPublicKeyInfoAsync(GetPublicKeyInfoParams queryParams) =>
+		await _vaultApi.GetPublicKeyInfoAsync(queryParams);
 
-	public Task<ApiResponse<PublicKeyModel>> GetPublicKeyInfoForVaultAccountAsync(
+	public async Task<ApiResponse<PublicKeyModel>> GetPublicKeyInfoForVaultAccountAsync(
 		string vaultAccountId,
 		string assetId,
 		string change,
 		int addressIndex,
-		GetPublicKeyInfoForVaultAccountParams queryParams)
-	{
-		throw new NotImplementedException();
-	}
+		GetPublicKeyInfoForVaultAccountParams queryParams) =>
+			await _vaultApi.GetPublicKeyInfoForVaultAccountAsync(
+				vaultAccountId,
+				assetId,
+				change,
+				addressIndex,
+				queryParams);
 
-	public Task<ApiResponse<IEnumerable<UnspentInputsDataModel>>> GetUnspentInputsAsync(
+	public async Task<ApiResponse<IEnumerable<UnspentInputsDataModel>>> GetUnspentInputsAsync(
 		string vaultAccountId,
-		string assetId)
-	{
-		throw new NotImplementedException();
-	}
+		string assetId) =>
+			await _vaultApi.GetUnspentInputsAsync(vaultAccountId, assetId);
 
-	public Task<ApiResponse<VaultAssetModel>> GetVaultAccountAssetAsync(string vaultAccountId, string assetId)
-	{
-		throw new NotImplementedException();
-	}
+	public async Task<ApiResponse<VaultAssetModel>> GetVaultAccountAssetAsync(string vaultAccountId, string assetId) =>
+		await _vaultApi.GetVaultAccountAssetAsync(vaultAccountId, assetId);
 
-	public Task<ApiResponse<VaultAccountModel>> GetVaultAccountAsync(string vaultAccountId)
-	{
-		throw new NotImplementedException();
-	}
+	public async Task<ApiResponse<VaultAccountModel>> GetVaultAccountAsync(string vaultAccountId) =>
+		await _vaultApi.GetVaultAccountAsync(vaultAccountId);
 
-	public Task<ApiResponse<IEnumerable<VaultAccountModel>>> GetVaultAccountsAsync(GetVaultAccountsParams queryParams)
-	{
-		throw new NotImplementedException();
-	}
+	public async Task<ApiResponse<IEnumerable<VaultAccountModel>>> GetVaultAccountsAsync(GetVaultAccountsParams queryParams) =>
+		await _vaultApi.GetVaultAccountsAsync(queryParams);
 
-	public Task<ApiResponse<VaultAccountsPagedModel>> GetVaultAccountsWithPageInfo(
-		GetVaultAccountsWithPageInfoParams queryParams)
-	{
-		throw new NotImplementedException();
-	}
+	public async Task<ApiResponse<VaultAccountsPagedModel>> GetVaultAccountsWithPageInfoAsync(
+		GetVaultAccountsWithPageInfoParams queryParams) =>
+			await _vaultApi.GetVaultAccountsWithPageInfoAsync(queryParams);
 
-	public Task<ApiResponse<IEnumerable<VaultAssetModel>>> GetVaultAssetsBalanceAsync(
-		GetVaultAssetsBalanceParams queryParams)
-	{
-		throw new NotImplementedException();
-	}
+	public async Task<ApiResponse<IEnumerable<VaultAssetModel>>> GetVaultAssetsBalanceAsync(
+		GetVaultAssetsBalanceParams queryParams) =>
+			await _vaultApi.GetVaultAssetsBalanceAsync(queryParams);
 
-	public Task<ApiResponse<VaultAssetModel>> GetVaultBalanceByAssetAsync(string assetId)
-	{
-		throw new NotImplementedException();
-	}
+	public async Task<ApiResponse<VaultAssetModel>> GetVaultBalanceByAssetAsync(string assetId) =>
+		await _vaultApi.GetVaultBalanceByAssetAsync(assetId);
 
-	public Task<ApiResponse<string>> HideVaultAccountAsync(string vaultAccountId)
-	{
-		throw new NotImplementedException();
-	}
+	public async Task<ApiResponse<string>> HideVaultAccountAsync(string vaultAccountId) =>
+		await _vaultApi.HideVaultAccountAsync(vaultAccountId);
 
-	public Task<ApiResponse<VaultAssetModel>> RefreshVaultAssetBalanceAsync(string vaultAccountId, string assetId)
-	{
-		throw new NotImplementedException();
-	}
+	public async Task<ApiResponse<VaultAssetModel>> RefreshVaultAssetBalanceAsync(string vaultAccountId, string assetId) =>
+		await _vaultApi.RefreshVaultAssetBalanceAsync(vaultAccountId, assetId);
 
-	public Task<ApiResponse<SetAddressDescriptionModel>> SetAddressDescriptionAsync(
+	public async Task<ApiResponse<SetAddressDescriptionModel>> SetAddressDescriptionAsync(
 		string vaultAccountId,
 		string assetId,
 		string addressId,
-		Request.SetAddressDescriptionModel payload)
-	{
-		throw new NotImplementedException();
-	}
+		Request.SetAddressDescriptionModel payload) =>
+			await _vaultApi.SetAddressDescriptionAsync(vaultAccountId, assetId, addressId, payload);
 
-	public Task<ApiResponse<string>> SetAutoFuelAsync(string vaultAccountId, Request.SetAutoFuelModel payload)
-	{
-		throw new NotImplementedException();
-	}
+	public async Task<ApiResponse<string>> SetAutoFuelAsync(string vaultAccountId, Request.SetAutoFuelModel payload) =>
+		await _vaultApi.SetAutoFuelAsync(vaultAccountId, payload);
 
-	public Task<ApiResponse<string>> SetCustomerRefIdForAddressAsync(
+	public async Task<ApiResponse<string>> SetCustomerRefIdForAddressAsync(
 		string vaultAccountId,
 		string assetId,
 		string addressId,
-		Request.SetVaultAccountCustomerRefIdModel payload)
-	{
-		throw new NotImplementedException();
-	}
+		Request.SetVaultAccountCustomerRefIdModel payload) =>
+			await _vaultApi.SetCustomerRefIdForAddressAsync(vaultAccountId, assetId, addressId, payload);
 
-	public Task<ApiResponse<string>> SetVaultAccountCustomerRefIdAsync(
+	public async Task<ApiResponse<string>> SetVaultAccountCustomerRefIdAsync(
 		string vaultAccountId,
-		Request.SetVaultAccountCustomerRefIdModel payload)
-	{
-		throw new NotImplementedException();
-	}
+		Request.SetVaultAccountCustomerRefIdModel payload) =>
+			await _vaultApi.SetVaultAccountCustomerRefIdAsync(vaultAccountId, payload);
 
-	public Task<ApiResponse<string>> UnhideVaultAccountAsync(string vaultAccountId)
-	{
-		throw new NotImplementedException();
-	}
+	public async Task<ApiResponse<string>> UnhideVaultAccountAsync(string vaultAccountId) =>
+		await _vaultApi.UnhideVaultAccountAsync(vaultAccountId);
 
-	public Task<ApiResponse<VaultAccountModel>> UpdateVaultAccountAsync(
+	public async Task<ApiResponse<VaultAccountModel>> UpdateVaultAccountAsync(
 		string vaultAccountId,
-		Request.UpdateVaultAccountModel payload)
-	{
-		throw new NotImplementedException();
-	}
+		Request.UpdateVaultAccountModel payload) =>
+			await _vaultApi.UpdateVaultAccountAsync(vaultAccountId, payload);
 }

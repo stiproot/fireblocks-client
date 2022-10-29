@@ -16,7 +16,7 @@ public interface IVaultService
 	/// This endpoint returns a limited amount of results and quick response time<br/>
 	/// https://docs.fireblocks.com/api/#list-vault-accounts-paged
 	/// </summary>
-	Task<ApiResponse<VaultAccountsPagedModel>> GetVaultAccountsWithPageInfo(
+	Task<ApiResponse<VaultAccountsPagedModel>> GetVaultAccountsWithPageInfoAsync(
 		GetVaultAccountsWithPageInfoParams queryParams);
 
 	/// <summary>

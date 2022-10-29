@@ -23,9 +23,17 @@ public class BaseServiceTests
 		};
 	}
 
-	protected static Task<ApiResponse<T>> CreateResponse<T>(HttpStatusCode statusCode) where T : IBaseResponseModel =>
-		Task.FromResult(new ApiResponse<T>(
-			new HttpResponseMessage(statusCode),
-			default,
-			new RefitSettings()));
+	protected static Task<ApiResponse<T>> CreateResponse<T>(HttpStatusCode statusCode)
+		where T : IBaseResponseModel =>
+			Task.FromResult(new ApiResponse<T>(
+				new HttpResponseMessage(statusCode),
+				default,
+				new RefitSettings()));
+
+	protected static Task<ApiResponse<IEnumerable<T>>> CreateIEnumerableResponse<T>(HttpStatusCode statusCode)
+		where T : IBaseResponseModel =>
+			Task.FromResult(new ApiResponse<IEnumerable<T>>(
+				new HttpResponseMessage(statusCode),
+				default,
+				new RefitSettings()));
 }

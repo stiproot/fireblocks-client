@@ -8,7 +8,7 @@ namespace Fireblocks.Api.Interfaces;
 public interface IVaultApi : IFireblocksApi
 {
 	[Get("/accounts_paged")]
-	Task<ApiResponse<VaultAccountsPagedModel>> GetVaultAccountsWithPageInfo(
+	Task<ApiResponse<VaultAccountsPagedModel>> GetVaultAccountsWithPageInfoAsync(
 		[Query] GetVaultAccountsWithPageInfoParams queryParams);
 
 	[Get("/accounts")]
