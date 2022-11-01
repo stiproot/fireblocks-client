@@ -70,7 +70,7 @@ stages:
         command: 'test'
         projects: '**/*.Tests.csproj'
         publishTestResults: true
-        arguments: '-e $(Test.FireblocksApiConfigSecretKey) --configuration $(Build.BuildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=opencover'
+        arguments: '-e FireblocksApiConfigSecretKey=$(Test.FireblocksApiConfigSecretKey) --configuration $(Build.BuildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=opencover'
 
     # merge test reports, convert to Cobertura type
     - task: reportgenerator@4
