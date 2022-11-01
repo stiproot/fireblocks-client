@@ -50,6 +50,6 @@ stages:
       inputs:
         command: 'test'
         projects: '**/*.Tests.csproj'
-        arguments: '--configuration $(Build.BuildConfiguration)'
+        arguments: '-e $(Test.FireblocksApiConfigSecretKey) --configuration $(Build.BuildConfiguration)'
 
 ...
