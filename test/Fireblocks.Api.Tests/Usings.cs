@@ -2,6 +2,7 @@ global using System.Net;
 global using System.Reflection;
 global using Fireblocks.Api.Configs;
 global using Fireblocks.Api.Extensions;
+global using Fireblocks.Api.Handlers;
 global using Fireblocks.Api.Interfaces;
 global using Fireblocks.Api.Models.Requests.Params;
 global using Fireblocks.Api.Models.Responses;

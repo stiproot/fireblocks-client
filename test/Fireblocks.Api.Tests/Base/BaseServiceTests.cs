@@ -18,7 +18,7 @@ public class BaseServiceTests
 		JwtConfig = new JwtConfig()
 		{
 			Nonce = "D3D2D2H7RIKAL",
-			IssueAt = new DateTime(2022, 10, 10, 0, 0, 0, DateTimeKind.Utc),
+			IssueAt = new DateTimeOffset(2022, 10, 10, 0, 0, 0, TimeSpan.Zero),
 			ExpiredInSeconds = 25
 		};
 	}
