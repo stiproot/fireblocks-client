@@ -11,6 +11,11 @@ public interface IFireblocksApiConfig
 	string BaseUrl { get; set; }
 
 	/// <summary>
+	/// Api version
+	/// </summary>
+	string Version { get; set; }
+
+	/// <summary>
 	/// The API Key to be provided to you by Fireblocks
 	/// </summary>
 	string? ApiKey { get; set; }
