@@ -40,7 +40,7 @@ public class ExchangeServiceTests : BaseServiceTests
 			.Returns(CreateResponse<ExchangeAssetModel>(HttpStatusCode.OK));
 
 		// When
-		var result = await _exchangeApiMock.Object.GetExchangeAccountAssetAsync("exchangeAccountId", "assetId");
+		var result = await _exchangeService.GetExchangeAccountAssetAsync("exchangeAccountId", "assetId");
 
 		// Then
 		Assert.Equal(HttpStatusCode.OK, result.StatusCode);
@@ -55,7 +55,7 @@ public class ExchangeServiceTests : BaseServiceTests
 			.Returns(CreateResponse<ExchangeAccountModel>(HttpStatusCode.OK));
 
 		// When
-		var result = await _exchangeApiMock.Object.GetExchangeAccountAsync("exchangeAccountId");
+		var result = await _exchangeService.GetExchangeAccountAsync("exchangeAccountId");
 
 		// Then
 		Assert.Equal(HttpStatusCode.OK, result.StatusCode);
@@ -70,7 +70,7 @@ public class ExchangeServiceTests : BaseServiceTests
 			.Returns(CreateIEnumerableResponse<ExchangeAccountModel>(HttpStatusCode.OK));
 
 		// When
-		var result = await _exchangeApiMock.Object.GetExchangeAccountsAsync();
+		var result = await _exchangeService.GetExchangeAccountsAsync();
 
 		// Then
 		Assert.Equal(HttpStatusCode.OK, result.StatusCode);
