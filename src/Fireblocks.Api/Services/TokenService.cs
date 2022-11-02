@@ -49,11 +49,11 @@ public class TokenService : ITokenService
 			new Claim("nonce",_jwtConfig.Nonce),
 			new Claim(
 				JwtRegisteredClaimNames.Iat,
-				_jwtConfig.IssueAt.ToUnixEpochDate().ToString(),
+				_jwtConfig.IssueAt.ToUnixTimeSeconds().ToString(),
 				ClaimValueTypes.Integer64),
 			new Claim(
 				JwtRegisteredClaimNames.Exp,
-				_jwtConfig.IssueAt.AddSeconds(_jwtConfig.ExpiredInSeconds).ToUnixEpochDate().ToString(),
+				_jwtConfig.IssueAt.AddSeconds(_jwtConfig.ExpiredInSeconds).ToUnixTimeSeconds().ToString(),
 				ClaimValueTypes.Integer64),
 			new Claim(JwtRegisteredClaimNames.Sub, _fireblocksApiConfig.ApiKey),
 			new Claim("bodyHash", GetRequestBodyHash(requestMessage))

@@ -13,7 +13,7 @@ public interface IJwtConfig
 	/// <summary>
 	/// The time at which the JWT was issued, in seconds since Epoch
 	/// </summary>
-	DateTime IssueAt { get; set; }
+	DateTimeOffset IssueAt { get; set; }
 
 	/// <summary>
 	/// The expiration time on and after which the JWT must not be accepted for processing, in seconds since Epoch<br/>
