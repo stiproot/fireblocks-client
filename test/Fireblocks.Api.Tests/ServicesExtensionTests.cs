@@ -74,6 +74,8 @@ public class ServicesExtensionTests : BaseServiceTests
 		Assert.Contains(services, x => x.ServiceType == typeof(IContractWalletApi));
 		Assert.Contains(services, x => x.ServiceType == typeof(IExchangeApi));
 		Assert.Contains(services, x => x.ServiceType == typeof(IFiatApi));
+		Assert.Contains(services, x => x.ServiceType == typeof(INetworkApi));
+		Assert.Contains(services, x => x.ServiceType == typeof(IAssetApi));
 
 		Assert.Contains(services, x => x.ImplementationType == typeof(AuthHeaderHandler));
 
@@ -94,5 +96,11 @@ public class ServicesExtensionTests : BaseServiceTests
 
 		Assert.Contains(services, x => x.ServiceType == typeof(IFiatService)
 								 && x.ImplementationType == typeof(FiatService));
+
+		Assert.Contains(services, x => x.ServiceType == typeof(INetworkService)
+								 && x.ImplementationType == typeof(NetworkService));
+
+		Assert.Contains(services, x => x.ServiceType == typeof(IAssetService)
+								 && x.ImplementationType == typeof(AssetService));
 	}
 }

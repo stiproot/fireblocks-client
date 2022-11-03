@@ -64,15 +64,17 @@ public static class ServicesExtensions
 			.AddRefitClient<IExchangeApi>(refitSettings)
 			.ConfigureHttpClient(c => c.BaseAddress = new Uri($"{config.BaseUrl}/{config.Version}/exchange_accounts"))
 			.AddHttpMessageHandler<AuthHeaderHandler>();
-
 		_ = services
 			.AddRefitClient<IFiatApi>(refitSettings)
 			.ConfigureHttpClient(c => c.BaseAddress = new Uri($"{config.BaseUrl}/{config.Version}/fiat_accounts"))
 			.AddHttpMessageHandler<AuthHeaderHandler>();
-
 		_ = services
 			.AddRefitClient<INetworkApi>(refitSettings)
 			.ConfigureHttpClient(c => c.BaseAddress = new Uri($"{config.BaseUrl}/{config.Version}/network_connections"))
+			.AddHttpMessageHandler<AuthHeaderHandler>();
+		_ = services
+			.AddRefitClient<IAssetApi>(refitSettings)
+			.ConfigureHttpClient(c => c.BaseAddress = new Uri($"{config.BaseUrl}/{config.Version}/supported_assets"))
 			.AddHttpMessageHandler<AuthHeaderHandler>();
 
 		_ = services
@@ -82,7 +84,8 @@ public static class ServicesExtensions
 			.AddSingleton<IContractWalletService, ContractWalletService>()
 			.AddSingleton<IExchangeService, ExchangeService>()
 			.AddSingleton<IFiatService, FiatService>()
-			.AddSingleton<INetworkService, NetworkService>();
+			.AddSingleton<INetworkService, NetworkService>()
+			.AddSingleton<IAssetService, AssetService>();
 
 		return services;
 	}
