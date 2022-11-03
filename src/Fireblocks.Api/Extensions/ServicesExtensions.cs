@@ -80,6 +80,10 @@ public static class ServicesExtensions
 			.AddRefitClient<IGasStationApi>(refitSettings)
 			.ConfigureHttpClient(c => c.BaseAddress = new Uri($"{config.BaseUrl}/{config.Version}/gas_station"))
 			.AddHttpMessageHandler<AuthHeaderHandler>();
+		_ = services
+			.AddRefitClient<IUserApi>(refitSettings)
+			.ConfigureHttpClient(c => c.BaseAddress = new Uri($"{config.BaseUrl}/{config.Version}/users"))
+			.AddHttpMessageHandler<AuthHeaderHandler>();
 
 		_ = services
 			.AddSingleton<IVaultService, VaultService>()
@@ -90,7 +94,8 @@ public static class ServicesExtensions
 			.AddSingleton<IFiatService, FiatService>()
 			.AddSingleton<INetworkService, NetworkService>()
 			.AddSingleton<IAssetService, AssetService>()
-			.AddSingleton<IGasStationService, GasStationService>();
+			.AddSingleton<IGasStationService, GasStationService>()
+			.AddSingleton<IUserService, UserService>();
 
 		return services;
 	}
