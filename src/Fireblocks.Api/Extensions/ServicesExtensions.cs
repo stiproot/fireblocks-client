@@ -71,12 +71,18 @@ public static class ServicesExtensions
 			.AddHttpMessageHandler<AuthHeaderHandler>();
 
 		_ = services
+			.AddRefitClient<INetworkApi>(refitSettings)
+			.ConfigureHttpClient(c => c.BaseAddress = new Uri($"{config.BaseUrl}/{config.Version}/fiat_accounts"))
+			.AddHttpMessageHandler<AuthHeaderHandler>();
+
+		_ = services
 			.AddSingleton<IVaultService, VaultService>()
 			.AddSingleton<IInternalWalletService, InternalWalletService>()
 			.AddSingleton<IExternalWalletService, ExternalWalletService>()
 			.AddSingleton<IContractWalletService, ContractWalletService>()
 			.AddSingleton<IExchangeService, ExchangeService>()
-			.AddSingleton<IFiatService, FiatService>();
+			.AddSingleton<IFiatService, FiatService>()
+			.AddSingleton<INetworkService, NetworkService>();
 
 		return services;
 	}
