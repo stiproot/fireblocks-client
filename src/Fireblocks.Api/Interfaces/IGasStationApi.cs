@@ -4,7 +4,7 @@ using Refit;
 
 namespace Fireblocks.Api.Interfaces;
 
-public interface IGasStationApi
+public interface IGasStationApi : IFireblocksApi
 {
 	[Get("")]
 	Task<ApiResponse<IEnumerable<GasStationInfoModel>>> GetGasStationInfoAsync();
