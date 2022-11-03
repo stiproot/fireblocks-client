@@ -72,7 +72,7 @@ public static class ServicesExtensions
 
 		_ = services
 			.AddRefitClient<INetworkApi>(refitSettings)
-			.ConfigureHttpClient(c => c.BaseAddress = new Uri($"{config.BaseUrl}/{config.Version}/fiat_accounts"))
+			.ConfigureHttpClient(c => c.BaseAddress = new Uri($"{config.BaseUrl}/{config.Version}/network_connections"))
 			.AddHttpMessageHandler<AuthHeaderHandler>();
 
 		_ = services
