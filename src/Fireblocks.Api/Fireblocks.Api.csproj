@@ -3,7 +3,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-	<PackageId>Fireblocks.Api.Models</PackageId>
+	<PackageId>Fireblocks.Api</PackageId>
     <Description>A nuget package for Fireblocks REST API client using .NET6</Description>
     <PackageTags>Fireblocks;blockchain;wallet;asset;vault;crypto</PackageTags>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
