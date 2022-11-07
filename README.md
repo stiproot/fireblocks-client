@@ -27,14 +27,13 @@ dotnet add package Fireblocks.Api
 ```json
 {
 	"Fireblocks": {
-		"ApiConfig":
-		{
+		"ApiConfig": {
 			"BaseUrl": "https://api.fireblocks.io",
 			"Version": "v1",
 			"ApiKey": "YOUR_API_KEY",
 			"ApiSecret": "YOUR_API_SECRET"
 		},
-		"JwtConfig":{
+		"JwtConfig": {
 			"ExpiredInSeconds": 25
 		}
 	}
