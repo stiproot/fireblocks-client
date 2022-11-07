@@ -4,6 +4,9 @@ using Refit;
 
 namespace Fireblocks.Api.Interfaces;
 
+/// <summary>
+/// Fiat services
+/// </summary>
 public interface IFiatService
 {
 	/// <summary>

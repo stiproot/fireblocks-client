@@ -3,6 +3,9 @@ using Refit;
 
 namespace Fireblocks.Api.Interfaces;
 
+/// <summary>
+/// Asset services
+/// </summary>
 public interface IAssetService
 {
 	/// <summary>

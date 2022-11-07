@@ -3,6 +3,9 @@ using Refit;
 
 namespace Fireblocks.Api.Interfaces;
 
+/// <summary>
+/// Network services
+/// </summary>
 public interface INetworkService
 {
 	/// <summary>

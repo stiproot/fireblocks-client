@@ -3,6 +3,9 @@ using Refit;
 
 namespace Fireblocks.Api.Interfaces;
 
+/// <summary>
+/// User services
+/// </summary>
 public interface IUserService
 {
 	/// <summary>

@@ -4,6 +4,9 @@ using Refit;
 
 namespace Fireblocks.Api.Interfaces;
 
+/// <summary>
+/// Gas Station services
+/// </summary>
 public interface IGasStationService
 {
 	/// <summary>

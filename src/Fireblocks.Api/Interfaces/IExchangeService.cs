@@ -4,6 +4,9 @@ using Refit;
 
 namespace Fireblocks.Api.Interfaces;
 
+/// <summary>
+/// Exchange Services
+/// </summary>
 public interface IExchangeService
 {
 	/// <summary>
