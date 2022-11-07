@@ -15,7 +15,7 @@ public class InternalWalletServiceTests : BaseServiceTests
 	public async Task CreateInternalWalletAssetAsync_ShouldSucceedAsync()
 	{
 		// Given
-		_internalWalletApiMock
+		_ = _internalWalletApiMock
 			.Setup(x => x.CreateInternalWalletAssetAsync(
 				It.IsAny<string>(),
 				It.IsAny<string>(),
@@ -36,7 +36,7 @@ public class InternalWalletServiceTests : BaseServiceTests
 	public async Task CreateInternalWalletAsync_ShouldSucceed()
 	{
 		// Given
-		_internalWalletApiMock
+		_ = _internalWalletApiMock
 			.Setup(x => x.CreateInternalWalletAsync(It.IsAny<Request.CreateInternalWalletModel>()))
 			.Returns(CreateResponse<UnmanagedWalletModel>(HttpStatusCode.OK));
 
@@ -51,7 +51,7 @@ public class InternalWalletServiceTests : BaseServiceTests
 	public async Task DeleteInternalWalletAssetAsync_ShouldSucceed()
 	{
 		// Given
-		_internalWalletApiMock
+		_ = _internalWalletApiMock
 			.Setup(x => x.DeleteInternalWalletAssetAsync(It.IsAny<string>(), It.IsAny<string>()))
 			.Returns(Task.FromResult(new ApiResponse<string>(
 				new HttpResponseMessage(HttpStatusCode.OK),
@@ -69,7 +69,7 @@ public class InternalWalletServiceTests : BaseServiceTests
 	public async Task DeleteInternalWalletAsync_ShouldSucceed()
 	{
 		// Given
-		_internalWalletApiMock
+		_ = _internalWalletApiMock
 			.Setup(x => x.DeleteInternalWalletAsync(It.IsAny<string>()))
 			.Returns(Task.FromResult(new ApiResponse<string>(
 				new HttpResponseMessage(HttpStatusCode.OK),
@@ -87,7 +87,7 @@ public class InternalWalletServiceTests : BaseServiceTests
 	public async Task GetInternalWalletAssetAsync_ShouldSucceed()
 	{
 		// Given
-		_internalWalletApiMock
+		_ = _internalWalletApiMock
 			.Setup(x => x.GetInternalWalletAssetAsync(It.IsAny<string>(), It.IsAny<string>()))
 			.Returns(CreateResponse<WalletAssetModel>(HttpStatusCode.OK));
 
@@ -102,7 +102,7 @@ public class InternalWalletServiceTests : BaseServiceTests
 	public async Task GetInternalWalletAsync_ShouldSucceed()
 	{
 		// Given
-		_internalWalletApiMock
+		_ = _internalWalletApiMock
 			.Setup(x => x.GetInternalWalletAsync(It.IsAny<string>()))
 			.Returns(CreateResponse<UnmanagedWalletModel>(HttpStatusCode.OK));
 
@@ -117,7 +117,7 @@ public class InternalWalletServiceTests : BaseServiceTests
 	public async Task GetInternalWalletsAsync_ShouldSucceed()
 	{
 		// Given
-		_internalWalletApiMock
+		_ = _internalWalletApiMock
 			.Setup(x => x.GetInternalWalletsAsync())
 			.Returns(CreateIEnumerableResponse<UnmanagedWalletModel>(HttpStatusCode.OK));
 
@@ -132,7 +132,7 @@ public class InternalWalletServiceTests : BaseServiceTests
 	public async Task SetCustomerRefIdForInternalWalletAsync_ShouldSucceed()
 	{
 		// Given
-		_internalWalletApiMock
+		_ = _internalWalletApiMock
 			.Setup(x => x.SetCustomerRefIdForInternalWalletAsync(
 				It.IsAny<string>(),
 				It.IsAny<Request.SetCustomerRefIdForInternalWalletModel>()))

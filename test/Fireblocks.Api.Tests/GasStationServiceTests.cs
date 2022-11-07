@@ -15,7 +15,7 @@ public class GasStationServiceTests : BaseServiceTests
 	public async Task GetGasStationInfoAsync_ShouldSucceed()
 	{
 		// Given
-		_gasStationApiMock
+		_ = _gasStationApiMock
 			.Setup(x => x.GetGasStationInfoAsync())
 			.Returns(CreateIEnumerableResponse<GasStationInfoModel>(HttpStatusCode.OK));
 
@@ -30,7 +30,7 @@ public class GasStationServiceTests : BaseServiceTests
 	public async Task GetGasStationInfoAsyncPerAsset_ShouldSucceed()
 	{
 		// Given
-		_gasStationApiMock
+		_ = _gasStationApiMock
 			.Setup(x => x.GetGasStationInfoAsync(It.IsAny<string>()))
 			.Returns(CreateResponse<GasStationInfoModel>(HttpStatusCode.OK));
 
@@ -45,7 +45,7 @@ public class GasStationServiceTests : BaseServiceTests
 	public async Task SetGasStationConfigurationAsync_ShouldSucceed()
 	{
 		// Given
-		_gasStationApiMock
+		_ = _gasStationApiMock
 			.Setup(x => x.SetGasStationConfigurationAsync(It.IsAny<Request.SetGasStationConfigurationModel>()))
 			.Returns(CreateResponse<GasStationInfoModel>(HttpStatusCode.OK));
 
@@ -60,7 +60,7 @@ public class GasStationServiceTests : BaseServiceTests
 	public async Task SetGasStationConfigurationAsyncPerAsset_ShouldSucceed()
 	{
 		// Given
-		_gasStationApiMock
+		_ = _gasStationApiMock
 			.Setup(x => x.SetGasStationConfigurationAsync(
 				It.IsAny<string>(),
 				It.IsAny<Request.SetGasStationConfigurationModel>()))

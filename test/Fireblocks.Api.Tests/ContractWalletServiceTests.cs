@@ -15,7 +15,7 @@ public class ContractWalletServiceTests : BaseServiceTests
 	public async Task CreateContractWalletAssetAsync_ShouldSucceedAsync()
 	{
 		// Given
-		_contractWalletApiMock
+		_ = _contractWalletApiMock
 			.Setup(x => x.CreateContractWalletAssetAsync(
 				It.IsAny<string>(),
 				It.IsAny<string>(),
@@ -36,7 +36,7 @@ public class ContractWalletServiceTests : BaseServiceTests
 	public async Task CreateContractWalletAsync_ShouldSucceed()
 	{
 		// Given
-		_contractWalletApiMock
+		_ = _contractWalletApiMock
 			.Setup(x => x.CreateContractWalletAsync(It.IsAny<Request.CreateContractWalletModel>()))
 			.Returns(CreateResponse<UnmanagedContractModel>(HttpStatusCode.OK));
 
@@ -51,7 +51,7 @@ public class ContractWalletServiceTests : BaseServiceTests
 	public async Task DeleteContractWalletAssetAsync_ShouldSucceed()
 	{
 		// Given
-		_contractWalletApiMock
+		_ = _contractWalletApiMock
 			.Setup(x => x.DeleteContractWalletAssetAsync(It.IsAny<string>(), It.IsAny<string>()))
 			.Returns(Task.FromResult(new ApiResponse<string>(
 				new HttpResponseMessage(HttpStatusCode.OK),
@@ -69,7 +69,7 @@ public class ContractWalletServiceTests : BaseServiceTests
 	public async Task DeleteContractWalletAsync_ShouldSucceed()
 	{
 		// Given
-		_contractWalletApiMock
+		_ = _contractWalletApiMock
 			.Setup(x => x.DeleteContractWalletAsync(It.IsAny<string>()))
 			.Returns(Task.FromResult(new ApiResponse<string>(
 				new HttpResponseMessage(HttpStatusCode.OK),
@@ -87,7 +87,7 @@ public class ContractWalletServiceTests : BaseServiceTests
 	public async Task GetContractWalletAssetAsync_ShouldSucceed()
 	{
 		// Given
-		_contractWalletApiMock
+		_ = _contractWalletApiMock
 			.Setup(x => x.GetContractWalletAssetAsync(It.IsAny<string>(), It.IsAny<string>()))
 			.Returns(CreateResponse<ContractAssetModel>(HttpStatusCode.OK));
 
@@ -102,7 +102,7 @@ public class ContractWalletServiceTests : BaseServiceTests
 	public async Task GetContractWalletAsync_ShouldSucceed()
 	{
 		// Given
-		_contractWalletApiMock
+		_ = _contractWalletApiMock
 			.Setup(x => x.GetContractWalletAsync(It.IsAny<string>()))
 			.Returns(CreateResponse<UnmanagedContractModel>(HttpStatusCode.OK));
 
@@ -117,7 +117,7 @@ public class ContractWalletServiceTests : BaseServiceTests
 	public async Task GetContractWalletsAsync_ShouldSucceed()
 	{
 		// Given
-		_contractWalletApiMock
+		_ = _contractWalletApiMock
 			.Setup(x => x.GetContractWalletsAsync())
 			.Returns(CreateIEnumerableResponse<UnmanagedContractModel>(HttpStatusCode.OK));
 

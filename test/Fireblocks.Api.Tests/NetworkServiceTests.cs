@@ -15,7 +15,7 @@ public class NetworkServiceTests : BaseServiceTests
 	public async Task GetNetworkConnectionAsync_ShouldSucceed()
 	{
 		// Given
-		_networkApiMock
+		_ = _networkApiMock
 			.Setup(x => x.GetNetworkConnectionAsync(It.IsAny<string>()))
 			.Returns(CreateResponse<NetworkConnectionModel>(HttpStatusCode.OK));
 
@@ -30,7 +30,7 @@ public class NetworkServiceTests : BaseServiceTests
 	public async Task GetNetworkConnectionsAsync_ShouldSucceed()
 	{
 		// Given
-		_networkApiMock
+		_ = _networkApiMock
 			.Setup(x => x.GetNetworkConnectionsAsync())
 			.Returns(CreateIEnumerableResponse<NetworkConnectionModel>(HttpStatusCode.OK));
 

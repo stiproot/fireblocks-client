@@ -15,7 +15,7 @@ public class ExchangeServiceTests : BaseServiceTests
 	public async Task ConvertAsync_ShouldSucceed()
 	{
 		// Given
-		_exchangeApiMock
+		_ = _exchangeApiMock
 			.Setup(x => x.ConvertAsync(It.IsAny<string>(), It.IsAny<Request.ConvertExchangeAccountFundModel>()))
 			.Returns(Task.FromResult(new ApiResponse<string>(
 				new HttpResponseMessage(HttpStatusCode.OK),
@@ -35,7 +35,7 @@ public class ExchangeServiceTests : BaseServiceTests
 	public async Task GetExchangeAccountAssetAsync_ShouldSucceed()
 	{
 		// Given
-		_exchangeApiMock
+		_ = _exchangeApiMock
 			.Setup(x => x.GetExchangeAccountAssetAsync(It.IsAny<string>(), It.IsAny<string>()))
 			.Returns(CreateResponse<ExchangeAssetModel>(HttpStatusCode.OK));
 
@@ -50,7 +50,7 @@ public class ExchangeServiceTests : BaseServiceTests
 	public async Task GetExchangeAccountAsync_ShouldSucceed()
 	{
 		// Given
-		_exchangeApiMock
+		_ = _exchangeApiMock
 			.Setup(x => x.GetExchangeAccountAsync(It.IsAny<string>()))
 			.Returns(CreateResponse<ExchangeAccountModel>(HttpStatusCode.OK));
 
@@ -65,7 +65,7 @@ public class ExchangeServiceTests : BaseServiceTests
 	public async Task GetExchangeAccountsAsync_ShouldSucceed()
 	{
 		// Given
-		_exchangeApiMock
+		_ = _exchangeApiMock
 			.Setup(x => x.GetExchangeAccountsAsync())
 			.Returns(CreateIEnumerableResponse<ExchangeAccountModel>(HttpStatusCode.OK));
 
@@ -80,7 +80,7 @@ public class ExchangeServiceTests : BaseServiceTests
 	public async Task InternalTransferAsync_ShouldSucceed()
 	{
 		// Given
-		_exchangeApiMock
+		_ = _exchangeApiMock
 			.Setup(x => x.InternalTransferAsync(It.IsAny<string>(), It.IsAny<Request.ExchangeInternalTransferModel>()))
 			.Returns(Task.FromResult(new ApiResponse<string>(
 				new HttpResponseMessage(HttpStatusCode.OK),

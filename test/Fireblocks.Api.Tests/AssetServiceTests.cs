@@ -15,7 +15,7 @@ public class AssetServiceTests : BaseServiceTests
 	public async Task GetSupportedAssetsAsync_ShouldSucceed()
 	{
 		// Given
-		_assetApiMock
+		_ = _assetApiMock
 			.Setup(x => x.GetSupportedAssetsAsync())
 			.Returns(CreateIEnumerableResponse<AssetTypeModel>(HttpStatusCode.OK));
 

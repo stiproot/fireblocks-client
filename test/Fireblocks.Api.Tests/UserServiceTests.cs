@@ -15,7 +15,7 @@ public class UserServiceTests : BaseServiceTests
 	public async Task GetUsersAsync_ShouldSucceed()
 	{
 		// Given
-		_userApiMock
+		_ = _userApiMock
 			.Setup(x => x.GetUsersAsync())
 			.Returns(CreateIEnumerableResponse<UserModel>(HttpStatusCode.OK));
 

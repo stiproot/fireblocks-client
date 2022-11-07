@@ -15,7 +15,7 @@ public class VaultServiceTests : BaseServiceTests
 	public async Task CreateVaultAccountAsync_ShouldSucceed()
 	{
 		// Given
-		_vaultApiMock
+		_ = _vaultApiMock
 			.Setup(x => x.CreateVaultAccountAsync(It.IsAny<Request.CreateVaultAccountModel>()))
 			.Returns(CreateResponse<VaultAccountModel>(HttpStatusCode.OK));
 
@@ -30,7 +30,7 @@ public class VaultServiceTests : BaseServiceTests
 	public async Task CreateVaultAssetAsync_ShouldSucceed()
 	{
 		// Given
-		_vaultApiMock
+		_ = _vaultApiMock
 			.Setup(x => x.CreateVaultAssetAsync(
 				It.IsAny<string>(),
 				It.IsAny<string>(),
@@ -51,7 +51,7 @@ public class VaultServiceTests : BaseServiceTests
 	public async Task GenerateNewAddressAsync_ShouldSucceed()
 	{
 		// Given
-		_vaultApiMock
+		_ = _vaultApiMock
 			.Setup(x => x.GenerateNewAddressAsync(
 				It.IsAny<string>(),
 				It.IsAny<string>(),
@@ -72,7 +72,7 @@ public class VaultServiceTests : BaseServiceTests
 	public async Task GetDepositAddressesAsync_ShouldSucceed()
 	{
 		// Given
-		_vaultApiMock
+		_ = _vaultApiMock
 			.Setup(x => x.GetDepositAddressesAsync(
 				It.IsAny<string>(),
 				It.IsAny<string>(),
@@ -93,7 +93,7 @@ public class VaultServiceTests : BaseServiceTests
 	public async Task GetMaxSpendableAmountAsync_ShouldSucceed()
 	{
 		// Given
-		_vaultApiMock
+		_ = _vaultApiMock
 			.Setup(x => x.GetMaxSpendableAmountAsync(It.IsAny<string>(), It.IsAny<string>()))
 			.Returns(CreateResponse<MaxSpendableAmountModel>(HttpStatusCode.OK));
 
@@ -110,7 +110,7 @@ public class VaultServiceTests : BaseServiceTests
 	public async Task GetPublicKeyInfoAsync_ShouldSucceed()
 	{
 		// Given
-		_vaultApiMock
+		_ = _vaultApiMock
 			.Setup(x => x.GetPublicKeyInfoAsync(It.IsAny<GetPublicKeyInfoParams>()))
 			.Returns(CreateResponse<PublicKeyModel>(HttpStatusCode.OK));
 
@@ -125,7 +125,7 @@ public class VaultServiceTests : BaseServiceTests
 	public async Task GetPublicKeyInfoForVaultAccountAsync_ShouldSucceed()
 	{
 		// Given
-		_vaultApiMock
+		_ = _vaultApiMock
 			.Setup(x => x.GetPublicKeyInfoForVaultAccountAsync(
 				It.IsAny<string>(),
 				It.IsAny<string>(),
@@ -150,7 +150,7 @@ public class VaultServiceTests : BaseServiceTests
 	public async Task GetUnspentInputsAsync_ShouldSucceed()
 	{
 		// Given
-		_vaultApiMock
+		_ = _vaultApiMock
 			.Setup(x => x.GetUnspentInputsAsync(It.IsAny<string>(), It.IsAny<string>()))
 			.Returns(CreateIEnumerableResponse<UnspentInputsDataModel>(HttpStatusCode.OK));
 
@@ -165,7 +165,7 @@ public class VaultServiceTests : BaseServiceTests
 	public async Task GetVaultAccountAssetAsync_ShouldSucceed()
 	{
 		// Given
-		_vaultApiMock
+		_ = _vaultApiMock
 			.Setup(x => x.GetVaultAccountAssetAsync(It.IsAny<string>(), It.IsAny<string>()))
 			.Returns(CreateResponse<VaultAssetModel>(HttpStatusCode.OK));
 
@@ -180,7 +180,7 @@ public class VaultServiceTests : BaseServiceTests
 	public async Task GetVaultAccountAsync_ShouldSucceed()
 	{
 		// Given
-		_vaultApiMock
+		_ = _vaultApiMock
 			.Setup(x => x.GetVaultAccountAsync(It.IsAny<string>()))
 			.Returns(CreateResponse<VaultAccountModel>(HttpStatusCode.OK));
 
@@ -195,7 +195,7 @@ public class VaultServiceTests : BaseServiceTests
 	public async Task GetVaultAccountsAsync_ShouldSucceed()
 	{
 		// Given
-		_vaultApiMock
+		_ = _vaultApiMock
 			.Setup(x => x.GetVaultAccountsAsync(It.IsAny<GetVaultAccountsParams>()))
 			.Returns(CreateIEnumerableResponse<VaultAccountModel>(HttpStatusCode.OK));
 
@@ -210,7 +210,7 @@ public class VaultServiceTests : BaseServiceTests
 	public async Task GetVaultAccountsWithPageInfoAsync_ShouldSucceed()
 	{
 		// Given
-		_vaultApiMock
+		_ = _vaultApiMock
 			.Setup(x => x.GetVaultAccountsWithPageInfoAsync(It.IsAny<GetVaultAccountsWithPageInfoParams>()))
 			.Returns(CreateResponse<VaultAccountsPagedModel>(HttpStatusCode.OK));
 
@@ -225,7 +225,7 @@ public class VaultServiceTests : BaseServiceTests
 	public async Task GetVaultAssetsBalanceAsync_ShouldSucceed()
 	{
 		// Given
-		_vaultApiMock
+		_ = _vaultApiMock
 			.Setup(x => x.GetVaultAssetsBalanceAsync(It.IsAny<GetVaultAssetsBalanceParams>()))
 			.Returns(CreateIEnumerableResponse<VaultAssetModel>(HttpStatusCode.OK));
 
@@ -240,7 +240,7 @@ public class VaultServiceTests : BaseServiceTests
 	public async Task GetVaultBalanceByAssetAsync_ShouldSucceed()
 	{
 		// Given
-		_vaultApiMock
+		_ = _vaultApiMock
 			.Setup(x => x.GetVaultBalanceByAssetAsync(It.IsAny<string>()))
 			.Returns(CreateResponse<VaultAssetModel>(HttpStatusCode.OK));
 
@@ -255,7 +255,7 @@ public class VaultServiceTests : BaseServiceTests
 	public async Task HideVaultAccountAsync_ShouldSucceed()
 	{
 		// Given
-		_vaultApiMock
+		_ = _vaultApiMock
 			.Setup(x => x.HideVaultAccountAsync(It.IsAny<string>()))
 			.Returns(Task.FromResult(new ApiResponse<string>(
 				new HttpResponseMessage(HttpStatusCode.OK),
@@ -273,7 +273,7 @@ public class VaultServiceTests : BaseServiceTests
 	public async Task RefreshVaultAssetBalanceAsync_ShouldSucceed()
 	{
 		// Given
-		_vaultApiMock
+		_ = _vaultApiMock
 			.Setup(x => x.RefreshVaultAssetBalanceAsync(It.IsAny<string>(), It.IsAny<string>()))
 			.Returns(CreateResponse<VaultAssetModel>(HttpStatusCode.OK));
 
@@ -288,7 +288,7 @@ public class VaultServiceTests : BaseServiceTests
 	public async Task SetAddressDescriptionAsync_ShouldSucceed()
 	{
 		// Given
-		_vaultApiMock
+		_ = _vaultApiMock
 			.Setup(x => x.SetAddressDescriptionAsync(
 				It.IsAny<string>(),
 				It.IsAny<string>(),
@@ -311,7 +311,7 @@ public class VaultServiceTests : BaseServiceTests
 	public async Task SetAutoFuelAsync_ShouldSucceed()
 	{
 		// Given
-		_vaultApiMock
+		_ = _vaultApiMock
 			.Setup(x => x.SetAutoFuelAsync(It.IsAny<string>(), It.IsAny<Request.SetAutoFuelModel>()))
 			.Returns(Task.FromResult(new ApiResponse<string>(
 				new HttpResponseMessage(HttpStatusCode.OK),
@@ -329,7 +329,7 @@ public class VaultServiceTests : BaseServiceTests
 	public async Task SetCustomerRefIdForAddressAsync_ShouldSucceed()
 	{
 		// Given
-		_vaultApiMock
+		_ = _vaultApiMock
 			.Setup(x => x.SetCustomerRefIdForAddressAsync(
 				It.IsAny<string>(),
 				It.IsAny<string>(),
@@ -355,7 +355,7 @@ public class VaultServiceTests : BaseServiceTests
 	public async Task SetVaultAccountCustomerRefIdAsync_ShouldSucceed()
 	{
 		// Given
-		_vaultApiMock
+		_ = _vaultApiMock
 			.Setup(x => x.SetVaultAccountCustomerRefIdAsync(
 				It.IsAny<string>(),
 				It.IsAny<Request.SetVaultAccountCustomerRefIdModel>()))
@@ -377,7 +377,7 @@ public class VaultServiceTests : BaseServiceTests
 	public async Task UnhideVaultAccountAsync_ShouldSucceed()
 	{
 		// Given
-		_vaultApiMock
+		_ = _vaultApiMock
 			.Setup(x => x.UnhideVaultAccountAsync(It.IsAny<string>()))
 			.Returns(Task.FromResult(new ApiResponse<string>(
 				new HttpResponseMessage(HttpStatusCode.OK),
@@ -395,7 +395,7 @@ public class VaultServiceTests : BaseServiceTests
 	public async Task UpdateVaultAccountAsync_ShouldSucceed()
 	{
 		// Given
-		_vaultApiMock
+		_ = _vaultApiMock
 			.Setup(x => x.UpdateVaultAccountAsync(
 				It.IsAny<string>(),
 				It.IsAny<Request.UpdateVaultAccountModel>()))

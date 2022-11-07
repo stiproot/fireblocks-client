@@ -15,7 +15,7 @@ public class FiatServiceTests : BaseServiceTests
 	public async Task DepositFromLinkedDdaAsync_ShouldSucceed()
 	{
 		// Given
-		_fiatApiMock
+		_ = _fiatApiMock
 			.Setup(x => x.DepositFromLinkedDdaAsync(It.IsAny<string>(), It.IsAny<Request.DepositFundModel>()))
 			.Returns(Task.FromResult(new ApiResponse<string>(
 				new HttpResponseMessage(HttpStatusCode.OK),
@@ -35,7 +35,7 @@ public class FiatServiceTests : BaseServiceTests
 	public async Task GetFiatAccountAsync_ShouldSucceed()
 	{
 		// Given
-		_fiatApiMock
+		_ = _fiatApiMock
 			.Setup(x => x.GetFiatAccountAsync(It.IsAny<string>()))
 			.Returns(CreateResponse<FiatAccountModel>(HttpStatusCode.OK));
 
@@ -50,7 +50,7 @@ public class FiatServiceTests : BaseServiceTests
 	public async Task GetFiatAccountsAsync_ShouldSucceed()
 	{
 		// Given
-		_fiatApiMock
+		_ = _fiatApiMock
 			.Setup(x => x.GetFiatAccountsAsync())
 			.Returns(CreateIEnumerableResponse<FiatAccountModel>(HttpStatusCode.OK));
 
@@ -65,7 +65,7 @@ public class FiatServiceTests : BaseServiceTests
 	public async Task RedeemToLinkedDdaAsync_ShouldSucceed()
 	{
 		// Given
-		_fiatApiMock
+		_ = _fiatApiMock
 			.Setup(x => x.RedeemToLinkedDdaAsync(It.IsAny<string>(), It.IsAny<Request.RedeemFundModel>()))
 			.Returns(Task.FromResult(new ApiResponse<string>(
 				new HttpResponseMessage(HttpStatusCode.OK),

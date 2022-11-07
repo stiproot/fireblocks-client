@@ -15,7 +15,7 @@ public class ExternalWalletServiceTests : BaseServiceTests
 	public async Task CreateExternalWalletAssetAsync_ShouldSucceedAsync()
 	{
 		// Given
-		_externalWalletApiMock
+		_ = _externalWalletApiMock
 			.Setup(x => x.CreateExternalWalletAssetAsync(
 				It.IsAny<string>(),
 				It.IsAny<string>(),
@@ -36,7 +36,7 @@ public class ExternalWalletServiceTests : BaseServiceTests
 	public async Task CreateExternalWalletAsync_ShouldSucceed()
 	{
 		// Given
-		_externalWalletApiMock
+		_ = _externalWalletApiMock
 			.Setup(x => x.CreateExternalWalletAsync(It.IsAny<Request.CreateExternalWalletModel>()))
 			.Returns(CreateResponse<ExternalWalletModel>(HttpStatusCode.OK));
 
@@ -51,7 +51,7 @@ public class ExternalWalletServiceTests : BaseServiceTests
 	public async Task DeleteExternalWalletAssetAsync_ShouldSucceed()
 	{
 		// Given
-		_externalWalletApiMock
+		_ = _externalWalletApiMock
 			.Setup(x => x.DeleteExternalWalletAssetAsync(It.IsAny<string>(), It.IsAny<string>()))
 			.Returns(Task.FromResult(new ApiResponse<string>(
 				new HttpResponseMessage(HttpStatusCode.OK),
@@ -69,7 +69,7 @@ public class ExternalWalletServiceTests : BaseServiceTests
 	public async Task DeleteExternalWalletAsync_ShouldSucceed()
 	{
 		// Given
-		_externalWalletApiMock
+		_ = _externalWalletApiMock
 			.Setup(x => x.DeleteExternalWalletAsync(It.IsAny<string>()))
 			.Returns(Task.FromResult(new ApiResponse<string>(
 				new HttpResponseMessage(HttpStatusCode.OK),
@@ -87,7 +87,7 @@ public class ExternalWalletServiceTests : BaseServiceTests
 	public async Task GetExternalWalletAssetAsync_ShouldSucceed()
 	{
 		// Given
-		_externalWalletApiMock
+		_ = _externalWalletApiMock
 			.Setup(x => x.GetExternalWalletAssetAsync(It.IsAny<string>(), It.IsAny<string>()))
 			.Returns(CreateResponse<ExternalWalletAssetModel>(HttpStatusCode.OK));
 
@@ -102,7 +102,7 @@ public class ExternalWalletServiceTests : BaseServiceTests
 	public async Task GetExternalWalletAsync_ShouldSucceed()
 	{
 		// Given
-		_externalWalletApiMock
+		_ = _externalWalletApiMock
 			.Setup(x => x.GetExternalWalletAsync(It.IsAny<string>()))
 			.Returns(CreateResponse<ExternalWalletModel>(HttpStatusCode.OK));
 
@@ -117,7 +117,7 @@ public class ExternalWalletServiceTests : BaseServiceTests
 	public async Task GetExternalWalletsAsync_ShouldSucceed()
 	{
 		// Given
-		_externalWalletApiMock
+		_ = _externalWalletApiMock
 			.Setup(x => x.GetExternalWalletsAsync())
 			.Returns(CreateIEnumerableResponse<ExternalWalletModel>(HttpStatusCode.OK));
 
@@ -132,7 +132,7 @@ public class ExternalWalletServiceTests : BaseServiceTests
 	public async Task SetCustomerRefIdForExternalWalletAsync_ShouldSucceed()
 	{
 		// Given
-		_externalWalletApiMock
+		_ = _externalWalletApiMock
 			.Setup(x => x.SetCustomerRefIdForExternalWalletAsync(
 				It.IsAny<string>(),
 				It.IsAny<Request.SetCustomerRefIdForExternalWalletModel>()))
