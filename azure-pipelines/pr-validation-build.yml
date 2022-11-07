@@ -1,0 +1,55 @@
+---
+
+stages:
+- stage: PRValidation
+  condition: eq(variables['Build.Reason'], 'PullRequest')
+  displayName: Build & Test for PR validation
+  variables:
+  - group: FireblocksApi
+
+  jobs:
+  # Determine and set condition variables
+  - job: Determine
+    displayName: Determine and set condition variables
+    steps:
+    # check if there are any tests to run
+    - bash: |
+        if [ -f test/**/*.Tests.csproj ]; then
+          echo "##vso[task.setvariable variable=HasTestProjects;isoutput=true]true"
+        else
+          echo "##vso[task.setvariable variable=HasTestProjects;isoutput=true]false"
+        fi
+      name: printvar
+
+  # Pull request validation
+  - job: BuildAndTest
+    dependsOn: Determine
+    condition: succeeded()
+    displayName: Build for PR validation
+    variables:
+      hasTestProjects: $[ dependencies.Determine.outputs['printvar.HasTestProjects'] ]
+    steps:
+
+    # download .NET sdk
+    - task: UseDotNet@2
+      displayName: Use .NET Core sdk $(Build.DotnetSdkVersion)
+      inputs:
+        version: $(Build.DotnetSdkVersion)
+
+    # build project
+    - task: DotNetCoreCLI@2
+      displayName: Build project
+      inputs:
+        projects: '$(Build.BuildProjects)'
+        arguments: '--configuration $(Build.BuildConfiguration)'
+
+    # unit testing if test projects exist
+    - task: DotNetCoreCLI@2
+      condition: eq(variables['hasTestProjects'], 'true')
+      displayName: Run unit tests
+      inputs:
+        command: 'test'
+        projects: '**/*.Tests.csproj'
+        arguments: '-e FireblocksApiConfigSecretKey=$(Test.FireblocksApiConfigSecretKey) --configuration $(Build.BuildConfiguration)'
+
+...
