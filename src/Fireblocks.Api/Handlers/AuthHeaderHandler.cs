@@ -30,7 +30,7 @@ public class AuthHeaderHandler : DelegatingHandler
 			"Bearer",
 			_tokenService.BuildToken(request));
 
-		_logger.LogDebug("Sending request: @Request", request);
+		_logger.LogDebug("Sending request: {@Request}", request);
 
 		return await base.SendAsync(request, cancellationToken);
 	}
