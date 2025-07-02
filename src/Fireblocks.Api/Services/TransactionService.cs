@@ -1,4 +1,5 @@
 using Fireblocks.Api.Interfaces;
+using Fireblocks.Api.Models;
 using Fireblocks.Api.Models.Requests;
 using Fireblocks.Api.Models.Requests.Params;
 using Fireblocks.Api.Models.Responses;
@@ -19,6 +20,10 @@ public class TransactionService : ITransactionService
 	public async Task<ApiResponse<CreateTransactionResponseModel>> CreateTransactionAsync(
 		CreateTransactionModel payload) =>
 			await _transactionApi.CreateTransactionAsync(payload);
+
+	public async Task<ApiResponse<CreateTransactionResponseModel>> CreateTransactionAsyncV2(
+		CreateTransactionModelV2 payload) =>
+			await _transactionApi.CreateTransactionAsyncV2(payload);
 
 	public async Task<ApiResponse<string>> DropTransactionAsync(string txId, DropTransactionModel payload) =>
 		await _transactionApi.DropTransactionAsync(txId, payload);

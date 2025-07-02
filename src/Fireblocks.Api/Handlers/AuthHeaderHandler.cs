@@ -18,7 +18,7 @@ public class AuthHeaderHandler : DelegatingHandler
 		_logger = logger;
 		_config = config;
 		_tokenService = tokenService;
-		InnerHandler = new HttpClientHandler();
+		// InnerHandler = new HttpClientHandler();
 	}
 
 	protected override async Task<HttpResponseMessage> SendAsync(

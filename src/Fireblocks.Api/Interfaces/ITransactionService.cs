@@ -1,3 +1,4 @@
+using Fireblocks.Api.Models;
 using Fireblocks.Api.Models.Requests;
 using Fireblocks.Api.Models.Requests.Params;
 using Fireblocks.Api.Models.Responses;
@@ -24,6 +25,8 @@ public interface ITransactionService
 	/// https://docs.fireblocks.com/api/?#create-a-new-transaction
 	/// </summary>
 	Task<ApiResponse<CreateTransactionResponseModel>> CreateTransactionAsync(CreateTransactionModel payload);
+
+	Task<ApiResponse<CreateTransactionResponseModel>> CreateTransactionAsyncV2(CreateTransactionModelV2 payload);
 
 	/// <summary>
 	/// Retrieve a Specific Transaction<br/>

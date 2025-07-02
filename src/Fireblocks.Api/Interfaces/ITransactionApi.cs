@@ -1,3 +1,4 @@
+using Fireblocks.Api.Models;
 using Fireblocks.Api.Models.Requests;
 using Fireblocks.Api.Models.Requests.Params;
 using Fireblocks.Api.Models.Responses;
@@ -13,6 +14,9 @@ public interface ITransactionApi : IFireblocksApi
 
 	[Post("")]
 	Task<ApiResponse<CreateTransactionResponseModel>> CreateTransactionAsync([Body] CreateTransactionModel payload);
+
+	[Post("")]
+	Task<ApiResponse<CreateTransactionResponseModel>> CreateTransactionAsyncV2([Body] CreateTransactionModelV2 payload);
 
 	[Get("/{txId}")]
 	Task<ApiResponse<TransactionDetailsModel>> GetTransactionByIdAsync(string txId);
