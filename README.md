@@ -1,26 +1,10 @@
 # Fireblocks.Client
 
-[![GitHub](https://img.shields.io/github/license/ed555009/fireblocks-api)](LICENSE)
-![Build Status](https://dev.azure.com/edwang/github/_apis/build/status/fireblocks-api?branchName=master)
-[![Nuget](https://img.shields.io/nuget/v/Fireblocks.Client)](https://www.nuget.org/packages/Fireblocks.Client)
-
-![Coverage](http://direct.link2me.com.tw:9000/api/project_badges/measure?project=fireblocks-api&metric=coverage&token=edde8bb242d724653b64036f7a3fe6cf539b3a1a)
-![Quality Gate Status](http://direct.link2me.com.tw:9000/api/project_badges/measure?project=fireblocks-api&metric=alert_status&token=edde8bb242d724653b64036f7a3fe6cf539b3a1a)
-![Reliability Rating](http://direct.link2me.com.tw:9000/api/project_badges/measure?project=fireblocks-api&metric=reliability_rating&token=edde8bb242d724653b64036f7a3fe6cf539b3a1a)
-![Security Rating](http://direct.link2me.com.tw:9000/api/project_badges/measure?project=fireblocks-api&metric=security_rating&token=edde8bb242d724653b64036f7a3fe6cf539b3a1a)
-![Vulnerabilities](http://direct.link2me.com.tw:9000/api/project_badges/measure?project=fireblocks-api&metric=vulnerabilities&token=edde8bb242d724653b64036f7a3fe6cf539b3a1a)
-
 ## Description
 
 This is a .NET6 library for interacting with the [Fireblocks](https://www.fireblocks.com/) API.
 
 ## Quick start
-
-### Installation
-
-```bash
-dotnet add package Fireblocks.Client
-```
 
 ### Appsettings.json
 
@@ -31,7 +15,7 @@ dotnet add package Fireblocks.Client
 			"BaseUrl": "https://api.fireblocks.io",
 			"Version": "v1",
 			"ApiKey": "YOUR_API_KEY",
-			"ApiSecret": "YOUR_API_SECRET"
+			"SecretKey": "YOUR_SECRET_KEY"
 		},
 		"JwtConfig": {
 			"ExpiredInSeconds": 25
