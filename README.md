@@ -1,8 +1,8 @@
-# Fireblocks.Api
+# Fireblocks.Client
 
 [![GitHub](https://img.shields.io/github/license/ed555009/fireblocks-api)](LICENSE)
 ![Build Status](https://dev.azure.com/edwang/github/_apis/build/status/fireblocks-api?branchName=master)
-[![Nuget](https://img.shields.io/nuget/v/Fireblocks.Api)](https://www.nuget.org/packages/Fireblocks.Api)
+[![Nuget](https://img.shields.io/nuget/v/Fireblocks.Client)](https://www.nuget.org/packages/Fireblocks.Client)
 
 ![Coverage](http://direct.link2me.com.tw:9000/api/project_badges/measure?project=fireblocks-api&metric=coverage&token=edde8bb242d724653b64036f7a3fe6cf539b3a1a)
 ![Quality Gate Status](http://direct.link2me.com.tw:9000/api/project_badges/measure?project=fireblocks-api&metric=alert_status&token=edde8bb242d724653b64036f7a3fe6cf539b3a1a)
@@ -19,7 +19,7 @@ This is a .NET6 library for interacting with the [Fireblocks](https://www.firebl
 ### Installation
 
 ```bash
-dotnet add package Fireblocks.Api
+dotnet add package Fireblocks.Client
 ```
 
 ### Appsettings.json
@@ -43,7 +43,7 @@ dotnet add package Fireblocks.Api
 ### Add configs & services
 
 ```csharp
-using Fireblocks.Api.Extensions;
+using Fireblocks.Client.Extensions;
 
 ConfigureServices(IServiceCollection services, IConfiguration configuration)
 {
@@ -56,9 +56,9 @@ ConfigureServices(IServiceCollection services, IConfiguration configuration)
 ### Using services
 
 ```csharp
-using Fireblocks.Api.Interfaces;
-using Fireblocks.Api.Models.Responses;
-using Fireblocks.Api.Services;
+using Fireblocks.Client.Abstractions;
+using Fireblocks.Client.Models.Responses;
+using Fireblocks.Client.Services;
 
 public class MyProcess
 {

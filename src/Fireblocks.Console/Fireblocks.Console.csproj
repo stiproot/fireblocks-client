@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\Fireblocks.Api\Fireblocks.Api.csproj" />
+    <ProjectReference Include="..\Fireblocks.Client\Fireblocks.Client.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

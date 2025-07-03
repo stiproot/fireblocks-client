@@ -1,0 +1,18 @@
+using Fireblocks.Client.Enums;
+
+namespace Fireblocks.Client.Models.Responses;
+
+public class PublicKeyModel : BaseResponseModel
+{
+	/// <summary>
+	/// The requested public key
+	/// </summary>
+	public string? PublicKey { get; set; }
+
+	public SigningAlgorithm? Algorithm { get; set; }
+
+	/// <summary>
+	/// For BIP32 derivation used to retrieve the public key
+	/// </summary>
+	public IEnumerable<long?>? DerivationPath { get; set; }
+}

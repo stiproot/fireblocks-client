@@ -1,6 +1,7 @@
-﻿using Fireblocks.Api.Interfaces;
-using Fireblocks.Api.Models;
+﻿using Fireblocks.Client.Abstractions;
+using Fireblocks.Client.Models;
 using Microsoft.Extensions.DependencyInjection;
+using Fireblocks.Console;
 
 var svcProvider = ServiceProviderFactory.CreateServiceProvider();
 
@@ -24,6 +25,7 @@ var tx = new CreateTransactionModelV2
       Address = "A5f2ZHBTw92Ki9dU1TuqVuoADCiQ7sqvs3PSgj45iKHN"
     }
   },
+  ExternalTxId = Guid.NewGuid().ToString(),
 };
 
 await txSvc.CreateTransactionAsyncV2(tx);

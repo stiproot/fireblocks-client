@@ -1,9 +1,11 @@
-using Fireblocks.Api.Configs;
-using Fireblocks.Api.Extensions;
-using Fireblocks.Api.Interfaces;
-using Fireblocks.Api.Services;
+// using Fireblocks.Client.Configs;
+using Fireblocks.Client.Extensions;
+// using Fireblocks.Client.Abstractions;
+// using Fireblocks.Client.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+
+namespace Fireblocks.Console;
 
 public static class ServiceProviderFactory
 {
@@ -18,24 +20,24 @@ public static class ServiceProviderFactory
 
     var services = CreateServiceCollection();
 
-    var apiConfig = new FireblocksApiConfig
-    {
-      BaseUrl = configuration["Fireblocks:ApiConfig:BaseUrl"]!,
-      Version = configuration["Fireblocks:ApiConfig:Version"]!,
-      ApiKey = configuration["Fireblocks:ApiConfig:ApiKey"]!,
-      SecretKey = configuration["Fireblocks:ApiConfig:ApiSecret"]!,
-    };
+    // var apiConfig = new FireblocksApiConfig
+    // {
+    //   BaseUrl = configuration["Fireblocks:ApiConfig:BaseUrl"]!,
+    //   Version = configuration["Fireblocks:ApiConfig:Version"]!,
+    //   ApiKey = configuration["Fireblocks:ApiConfig:ApiKey"]!,
+    //   SecretKey = configuration["Fireblocks:ApiConfig:ApiSecret"]!,
+    // };
 
-    var jwtConfig = new JwtConfig
-    {
-      ExpiredInSeconds = int.Parse(configuration["Fireblocks:JwtConfig:ExpiredInSeconds"]!)
-    };
+    // var jwtConfig = new JwtConfig
+    // {
+    //   ExpiredInSeconds = int.Parse(configuration["Fireblocks:JwtConfig:ExpiredInSeconds"]!)
+    // };
 
-    services.AddSingleton<IFireblocksApiConfig>(apiConfig);
-    services.AddSingleton<IJwtConfig>(jwtConfig);
+    // services.AddSingleton<IFireblocksApiConfig>(apiConfig);
+    // services.AddSingleton<IJwtConfig>(jwtConfig);
 
     services.AddSingleton<IConfiguration>(configuration);
-    services.AddSingleton<ITokenService, TokenService>();
+    // services.AddSingleton<ITokenService, TokenService>();
     services
       .AddFireblocksApiConfigs(configuration)
       .AddFireblocksApiServices(configuration);
